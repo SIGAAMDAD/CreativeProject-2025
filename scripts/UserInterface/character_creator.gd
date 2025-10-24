@@ -1,6 +1,7 @@
 class_name CharacterCreator extends Control
 
 var _selected_character: int = 0
+var _character_presets: Array[ CharacterStats ]
 
 #
 # ===============
@@ -31,6 +32,8 @@ func _list_files_in_directory( path: String ) -> Array[ String ]:
 #
 func _on_character_option_selected( index: int ) -> void:
 	_selected_character = index
+	CharacterData.set_player_preset( _character_presets[ index ] )
+	get_tree().change_scene_to_file( "res://scenes/world/intro_scene.tscn" )
 
 
 #
@@ -48,5 +51,8 @@ func _ready() -> void:
 		_choice.texture_normal = _choice._character_option._mugshot
 		_choice.connect( "pressed", func(): _on_character_option_selected( _index ) )
 		_character_options.add_child( _choice )
+		_character_presets.push_back( _choice._character_option )
+		
+		print( "...Loaded character choice \"" + _choice._character_option._name + "\"" )
 
 		_index += 1

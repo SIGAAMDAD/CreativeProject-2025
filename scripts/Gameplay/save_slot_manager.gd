@@ -117,13 +117,11 @@ class SaveSlot:
 		if _exists:
 			_load_header()
 
-
-signal save_game()
-signal start_game()
-
 var _save_slots: Array[ SaveSlot ]
 var _current_slot: int
 
+signal save_game()
+signal start_game()
 
 #
 # ===============

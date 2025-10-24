@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Dice" load_steps=2 format=3 uid="uid://chbof1n3nbs0v"]
+
+[ext_resource type="Script" uid="uid://2wtgp1t7cd4q" path="res://scripts/Gameplay/dice.gd" id="1_ooemy"]
+
+[resource]
+script = ExtResource("1_ooemy")
+_max = 8

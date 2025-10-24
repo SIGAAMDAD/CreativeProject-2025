@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dtxktjj4o4hw5"]
+
+[ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_5pv70"]
+[ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_idf18"]
+[ext_resource type="Texture2D" uid="uid://bspm786dp4v0v" path="res://textures/sorc_mc.png" id="2_jieca"]
+
+[resource]
+script = ExtResource("2_idf18")
+_name = "Elf Sorcerer"
+_mugshot = ExtResource("2_jieca")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"

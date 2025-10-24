@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b27yvfvuakchw"]
+[gd_scene load_steps=6 format=3 uid="uid://b27yvfvuakchw"]
 
 [ext_resource type="Script" uid="uid://bgxlivssr08wh" path="res://scripts/Gameplay/date_choice.gd" id="1_pjwhf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjwhf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjwhf"]
 size = Vector2(158, 131)
@@ -13,10 +15,11 @@ colors = PackedColorArray(0, 0.85490197, 0, 0.29803923)
 gradient = SubResource("Gradient_pjwhf")
 width = 1
 
-[node name="DateChoice" type="Node2D"]
+[node name="DateChoice" type="Node2D" groups=["DateChoices"]]
 script = ExtResource("1_pjwhf")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pjwhf")
 
 [node name="InteractArea" type="Area2D" parent="."]
 

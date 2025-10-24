@@ -1,45 +1,8 @@
 class_name DiceRoller extends Node
 
-#
-# ===============
-# roll_d20
-# ===============
-#
-func roll_d20( modifier: int ) -> int:
-	return randi_range( 1, 20 ) + modifier
-
-
-#
-# ===============
-# roll_d12
-# ===============
-#
-func roll_d12( modifier: int ) -> int:
-	return randi_range( 1, 12 ) + modifier
-
-
-#
-# ===============
-# roll_d10
-# ===============
-#
-func roll_d10( modifier: int ) -> int:
-	return randi_range( 1, 10 ) + modifier
-
-
-#
-# ===============
-# roll_d8
-# ===============
-#
-func roll_d8( modifier: int ) -> int:
-	return randi_range( 1, 8 ) + modifier
-
-
-#
-# ===============
-# roll_d4
-# ===============
-#
-func roll_d4( modifier: int ) -> int:
-	return randi_range( 1, 4 ) + modifier
+const D20: Dice = preload( "res://resources/dice/d20.tres" )
+const D12: Dice = preload( "res://resources/dice/d12.tres" )
+const D10: Dice = preload( "res://resources/dice/d10.tres" )
+const D8: Dice = preload( "res://resources/dice/d8.tres" )
+const D6: Dice = preload( "res://resources/dice/d6.tres" )
+const D4: Dice = preload( "res://resources/dice/d4.tres" )

@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("2_eablb")
+_name = "Paladin"
 _mugshot = ExtResource("1_nu5sr")

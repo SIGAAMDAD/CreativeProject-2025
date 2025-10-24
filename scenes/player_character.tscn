@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpmvht44qgmlp"]
+[gd_scene load_steps=5 format=3 uid="uid://cpmvht44qgmlp"]
 
 [ext_resource type="Script" uid="uid://c0rcuh6bnhn1d" path="res://scripts/Gameplay/player_character.gd" id="1_6r27q"]
 [ext_resource type="Script" uid="uid://m42c4x2rytr3" path="res://scripts/Gameplay/team.gd" id="2_kww55"]
+[ext_resource type="PackedScene" uid="uid://ds42k77pol11k" path="res://scenes/heads_up_display.tscn" id="3_kww55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6r27q"]
 
@@ -14,3 +15,5 @@ script = ExtResource("2_kww55")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6r27q")
+
+[node name="HeadsUpDisplay" parent="." instance=ExtResource("3_kww55")]

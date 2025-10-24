@@ -33,7 +33,6 @@ func _on_play_game_button_pressed() -> void:
 	if SaveManager.has_progress_in_current_slot():
 		SaveManager.load()
 	else:
-		SaveManager.initialize_game()
 		get_tree().change_scene_to_file( "res://scenes/character_creation_screen.tscn" )
 
 
