@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnooe0hecrfu0"]
+[gd_scene load_steps=3 format=3 uid="uid://dnooe0hecrfu0"]
 
 [ext_resource type="Script" uid="uid://caa75mqouparp" path="res://scripts/UserInterface/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bi240clocu10d" path="res://scenes/save_slot_button.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,3 +12,84 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 metadata/_edit_use_anchors_ = true
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_top = 0.423
+anchor_right = 0.611
+anchor_bottom = 0.577
+offset_left = -0.12802124
+offset_top = -0.104003906
+offset_right = 0.12799072
+offset_bottom = 0.10397339
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuTitle" type="Label" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SELECT SAVE SLOT"
+
+[node name="SaveSlotsSelectContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SaveSlot0" parent="MainContainer/SaveSlotsSelectContainer" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../DeleteDataButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SaveSlot2")
+focus_behavior_recursive = 2
+
+[node name="SaveSlot1" parent="MainContainer/SaveSlotsSelectContainer" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SaveSlot0")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SaveSlot2")
+focus_behavior_recursive = 2
+_slot_index = 1
+
+[node name="SaveSlot2" parent="MainContainer/SaveSlotsSelectContainer" instance=ExtResource("2_ekxnf")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SaveSlot1")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../DeleteDataButton")
+focus_behavior_recursive = 2
+_slot_index = 2
+
+[node name="DeleteDataButton" type="Button" parent="MainContainer/SaveSlotsSelectContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SaveSlot2")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SaveSlot0")
+text = "DELETE DATA"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PlayGameButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+text = "START GAME"
+
+[node name="SettingsMenuButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="QuitGameButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+text = "QUIT GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="MainContainer/OptionsContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="MainContainer/OptionsContainer/SettingsMenuButton" to="." method="_on_settings_menu_button_pressed"]
+[connection signal="pressed" from="MainContainer/OptionsContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

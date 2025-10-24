@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://sbgvxsso3lps"]
+
+[ext_resource type="Texture2D" uid="uid://rsnv5qmmp3qb" path="res://textures/paladin_mc.png" id="1_nu5sr"]
+[ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_eablb"]
+
+[resource]
+script = ExtResource("2_eablb")
+_mugshot = ExtResource("1_nu5sr")

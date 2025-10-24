@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b27yvfvuakchw"]
+
+[ext_resource type="Script" uid="uid://bgxlivssr08wh" path="res://scripts/Gameplay/date_choice.gd" id="1_pjwhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjwhf"]
+size = Vector2(158, 131)
+
+[sub_resource type="Gradient" id="Gradient_pjwhf"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.85490197, 0, 0.29803923)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7q2o"]
+gradient = SubResource("Gradient_pjwhf")
+width = 1
+
+[node name="DateChoice" type="Node2D"]
+script = ExtResource("1_pjwhf")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_pjwhf")
+
+[node name="TextureRect" type="TextureRect" parent="InteractArea"]
+offset_left = -79.0
+offset_top = -66.0
+offset_right = 79.0
+offset_bottom = 65.0
+texture = SubResource("GradientTexture1D_h7q2o")
+
+[connection signal="area_shape_entered" from="InteractArea" to="." method="_on_interact_area_area_shape_entered"]

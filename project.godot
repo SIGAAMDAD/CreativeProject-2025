@@ -11,12 +11,27 @@ config_version=5
 [application]
 
 config/name="Dating Sim"
+run/main_scene="uid://dnooe0hecrfu0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+CharacterData="*res://scripts/Gameplay/character_manager.gd"
+SaveManager="*res://scripts/Gameplay/save_slot_manager.gd"
 
 [dotnet]
 
 project/assembly_name="Dating Sim"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://bxp25na2mxr6t"
 
 [rendering]
 

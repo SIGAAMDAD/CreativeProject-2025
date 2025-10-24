@@ -1,0 +1,3 @@
+class_name CharacterChoiceButton extends TextureButton
+
+var _character_option: CharacterStats

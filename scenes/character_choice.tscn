@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnthmsr2wqky2"]
+
+[ext_resource type="Script" uid="uid://d28hjw74nyj0i" path="res://scripts/UserInterface/character_choice_button.gd" id="1_xhiym"]
+
+[node name="CharacterChoice" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+script = ExtResource("1_xhiym")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
