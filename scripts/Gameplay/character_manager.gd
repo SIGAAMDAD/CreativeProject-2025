@@ -7,7 +7,7 @@ var _enemy_team: Team
 
 var _player_preset: CharacterPreset
 
-signal interaction_begin()
+signal interaction_begin( interactor: InteractionArea )
 signal interaction_end()
 
 
@@ -39,8 +39,6 @@ func _load_date_choices() -> void:
 	var _nodes: Array[ Node ] = get_tree().get_nodes_in_group( "DateChoices" )
 	for node in _nodes:
 		_date_choices.push_back( _nodes )
-		node.connect( "interaction_begin", func(): interaction_begin.emit() )
-		node.connect( "interaction_end", func(): interaction_end.emit() )
 
 
 #
@@ -61,6 +59,10 @@ func _on_load_character_data() -> void:
 	_load_player.call_deferred()
 	_load_date_choices.call_deferred()
 	_load_teams.call_deferred()
+
+
+func start_interaction( interactor: InteractionArea ) -> void:
+	interaction_begin.emit( interactor )
 
 
 #

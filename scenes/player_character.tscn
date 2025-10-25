@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpmvht44qgmlp"]
+[gd_scene load_steps=6 format=3 uid="uid://cpmvht44qgmlp"]
 
 [ext_resource type="Script" uid="uid://c0rcuh6bnhn1d" path="res://scripts/Gameplay/player_character.gd" id="1_6r27q"]
 [ext_resource type="Script" uid="uid://m42c4x2rytr3" path="res://scripts/Gameplay/team.gd" id="2_kww55"]
 [ext_resource type="PackedScene" uid="uid://ds42k77pol11k" path="res://scenes/heads_up_display.tscn" id="3_kww55"]
+[ext_resource type="Script" uid="uid://kvxln4rou7jt" path="res://scripts/Gameplay/footsteps.gd" id="4_4h0vy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4h0vy"]
 
 [node name="PlayerCharacter" type="CharacterBody2D" groups=["Archive"]]
+z_index = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_6r27q")
 metadata/_custom_type_script = "uid://c0rcuh6bnhn1d"
-
-[node name="Team" type="Node" parent="."]
-script = ExtResource("2_kww55")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 animation = &""
@@ -29,5 +30,13 @@ volume_db = -2.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="Team" type="Node2D" parent="." node_paths=PackedStringArray("_members")]
+script = ExtResource("2_kww55")
+_members = [NodePath("..")]
+metadata/_custom_type_script = "uid://m42c4x2rytr3"
+
+[node name="Footsteps" type="Node" parent="."]
+script = ExtResource("4_4h0vy")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

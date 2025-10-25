@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnthmsr2wqky2"]
+
+[ext_resource type="Script" uid="uid://d28hjw74nyj0i" path="res://scripts/UserInterface/Menus/character_choice_button.gd" id="1_q1dng"]
+
+[node name="CharacterChoice" type="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = -1
+anchor_right = 0.133
+anchor_bottom = 0.085
+offset_right = -215.36
+offset_bottom = -51.800003
+script = ExtResource("1_q1dng")
+
+[node name="Selected" type="HSeparator" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Mugshot" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+horizontal_alignment = 1

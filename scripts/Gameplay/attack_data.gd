@@ -4,6 +4,7 @@ class_name AttackData extends Resource
 @export var _hit_dice_multiplier: int = 0
 @export var _hit_dice: Dice = null
 @export var _scale_stat: CharacterStat.StatType
+@export var _image: Texture2D
 
 
 #

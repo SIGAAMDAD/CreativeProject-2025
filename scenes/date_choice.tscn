@@ -1,19 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b27yvfvuakchw"]
+[gd_scene load_steps=5 format=3 uid="uid://b27yvfvuakchw"]
 
 [ext_resource type="Script" uid="uid://bgxlivssr08wh" path="res://scripts/Gameplay/date_choice.gd" id="1_pjwhf"]
+[ext_resource type="Script" uid="uid://dt5b0fjkud4xn" path="res://scripts/Gameplay/interaction_area.gd" id="2_h7q2o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjwhf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjwhf"]
-size = Vector2(158, 131)
-
-[sub_resource type="Gradient" id="Gradient_pjwhf"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0.85490197, 0, 0.29803923)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7q2o"]
-gradient = SubResource("Gradient_pjwhf")
-width = 1
+size = Vector2(79, 65.5)
 
 [node name="DateChoice" type="Node2D" groups=["DateChoices"]]
 script = ExtResource("1_pjwhf")
@@ -21,16 +14,9 @@ script = ExtResource("1_pjwhf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pjwhf")
 
-[node name="InteractArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("2_h7q2o")
+metadata/_custom_type_script = "uid://dt5b0fjkud4xn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("RectangleShape2D_pjwhf")
-
-[node name="TextureRect" type="TextureRect" parent="InteractArea"]
-offset_left = -79.0
-offset_top = -66.0
-offset_right = 79.0
-offset_bottom = 65.0
-texture = SubResource("GradientTexture1D_h7q2o")
-
-[connection signal="area_shape_entered" from="InteractArea" to="." method="_on_interact_area_area_shape_entered"]

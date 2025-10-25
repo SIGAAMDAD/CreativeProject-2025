@@ -3,8 +3,10 @@ class_name PlayerCharacter extends CharacterBody2D
 @onready var _team: Team = $Team
 @onready var _animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _audio_stream: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var _turn_system: TurnBasedCombatSystem = $/root/ActiveScene/TurnBasedSystem
+@onready var _footsteps: Footsteps = $Footsteps
 
-var _move_sounds: Array[ AudioStream ] = [
+@onready var _move_sounds: Array[ AudioStream ] = [
 	load( "res://sounds/move/move_gravel_0.wav" ),
 	load( "res://sounds/move/move_gravel_1.wav" ),
 	load( "res://sounds/move/move_gravel_2.wav" ),
@@ -67,7 +69,14 @@ func play_sound( stream: AudioStream ) -> void:
 func _on_animated_sprite_2d_animation_looped() -> void:
 	if _animations.animation != "idle":
 		play_sound( _move_sounds[ randi_range( 0, 3 ) ] )
+		_footsteps.add_step()
 
+
+func _on_interaction_begin( interactor: InteractionArea ) -> void:
+	if interactor is LoreDump:
+		DialogueManager.show_dialogue_balloon( interactor._lore_resource )
+	elif interactor is EnemyGroup:
+		_turn_system.begin_combat( interactor._team, _team )
 
 #
 # ===============
@@ -81,6 +90,8 @@ func _ready() -> void:
 	
 	var _sprites: AnimatedSprite2D = get_node( "AnimatedSprite2D" )
 	_sprites.sprite_frames = _preset._animations
+	
+	CharacterData.interaction_begin.connect( _on_interaction_begin )
 
 
 #

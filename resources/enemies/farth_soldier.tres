@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=19 format=3 uid="uid://kj4smgq870o5"]
+
+[ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_hjt5v"]
+[ext_resource type="Texture2D" uid="uid://dt1dco76kegcb" path="res://textures/farth_soldier_sheet.png" id="1_wm1uh"]
+[ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="2_b6q8i"]
+[ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_drd4b"]
+[ext_resource type="Resource" uid="uid://lmpv6wyj1rcp" path="res://resources/attacks/stabby_stabby.tres" id="3_6fsru"]
+[ext_resource type="Script" uid="uid://ctum6ljuhatx1" path="res://scripts/Gameplay/enemy_data.gd" id="4_wm1uh"]
+[ext_resource type="Texture2D" uid="uid://b5udo80nnbe4k" path="res://textures/paladin_mugshot.png" id="5_7peps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fsru"]
+atlas = ExtResource("1_wm1uh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7peps"]
+atlas = ExtResource("1_wm1uh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo7me"]
+atlas = ExtResource("1_wm1uh")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbpdx"]
+atlas = ExtResource("1_wm1uh")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7l4rm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fsru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7peps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo7me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbpdx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_6fsru"]
+script = ExtResource("2_b6q8i")
+_type = 4
+_name = "8"
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_7peps"]
+script = ExtResource("2_b6q8i")
+_score = 12
+_type = 1
+_name = "Dexterity"
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_xo7me"]
+script = ExtResource("2_b6q8i")
+_score = 10
+_type = 2
+_name = "Intelligence"
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_mbpdx"]
+script = ExtResource("2_b6q8i")
+_score = 14
+_name = "Strength"
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_7l4rm"]
+script = ExtResource("2_b6q8i")
+_score = 13
+_type = 3
+_name = "Wisdom"
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_y3c1l"]
+script = ExtResource("2_drd4b")
+_name = "Soldier of Farth"
+_strength = SubResource("Resource_mbpdx")
+_dexterity = SubResource("Resource_7peps")
+_intelligence = SubResource("Resource_xo7me")
+_wisdom = SubResource("Resource_7l4rm")
+_charisma = SubResource("Resource_6fsru")
+_attacks = Array[ExtResource("1_hjt5v")]([ExtResource("3_6fsru")])
+_mugshot = ExtResource("5_7peps")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"
+
+[resource]
+script = ExtResource("4_wm1uh")
+_stats = SubResource("Resource_y3c1l")
+_animation = SubResource("SpriteFrames_7l4rm")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"

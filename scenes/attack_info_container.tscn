@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq83cbfo4u2q1"]
+
+[ext_resource type="Script" uid="uid://ctiqd07uj7jkj" path="res://scripts/UserInterface/attack_info_container.gd" id="1_mkl0b"]
+
+[node name="AttackInfoContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mkl0b")
+
+[node name="TextureRect" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+visible = false
+layout_mode = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focused"]
+[connection signal="focus_exited" from="." to="." method="_on_unfocused"]
+[connection signal="mouse_entered" from="." to="." method="_on_focused"]
+[connection signal="mouse_exited" from="." to="." method="_on_unfocused"]
+[connection signal="pressed" from="TextureRect" to="." method="_on_pressed"]

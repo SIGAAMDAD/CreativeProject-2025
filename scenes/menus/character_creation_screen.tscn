@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfdyudksffa8j"]
+
+[ext_resource type="Script" uid="uid://cnwg4kbd74e2k" path="res://scripts/UserInterface/Menus/character_creator.gd" id="1_8d884"]
+
+[node name="CharacterCreationScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8d884")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47000003
+anchor_top = 0.448
+anchor_right = 0.53000003
+anchor_bottom = 0.55200005
+offset_left = 0.059936523
+offset_top = -0.3040161
+offset_right = -0.060058594
+offset_bottom = 0.30395508
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuTitle" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+text = "CHOOSE YOUR CHARACTER"
+horizontal_alignment = 1
+
+[node name="OptionsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CharacterPhoto" type="TextureRect" parent="VBoxContainer/InfoContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="Bio" type="Label" parent="VBoxContainer/InfoContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="BeginGameButton" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "BEGIN GAME"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.97800004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.23999023
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/BeginGameButton" to="." method="_on_begin_game_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -36,10 +36,7 @@ func _process(delta: float) -> void:
 # ---------- Signals ---------- #
 
 func set_button_state():
-	if self.is_hovered():
-		is_btn_hovered = true
-	else:
-		is_btn_hovered = false
+	is_btn_hovered = get_viewport().gui_get_focus_owner() == self
 
 func hover_scale_animation():
 	if animate_scale:

@@ -1,6 +1,24 @@
 class_name CharacterStats extends Resource
 
+enum Sex {
+	Bisexual,
+	Homosexual,
+	Omnisexual,
+	Pansexual,
+	Asexual,
+}
+
+enum Gender {
+	Male,
+	Female,
+	TransMale,
+	TransFemale,
+}
+
 @export var _name: String
+
+@export var _gender: Gender
+@export var _sex: Sex
 
 @export var _strength: CharacterStat
 @export var _dexterity: CharacterStat

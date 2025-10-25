@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbtmnbfsgfl4f"]
+
+[ext_resource type="Script" uid="uid://byrg57ps84p8i" path="res://scripts/Gameplay/turn_based_combat_system.gd" id="1_72qf1"]
+[ext_resource type="PackedScene" uid="uid://dv11nmchybny" path="res://scenes/turn_based_ui.tscn" id="2_hrbfq"]
+
+[node name="TurnBasedSystem" type="Node"]
+script = ExtResource("1_72qf1")
+
+[node name="TurnBasedUI" parent="." node_paths=PackedStringArray("_turn_system") instance=ExtResource("2_hrbfq")]
+_turn_system = NodePath("..")
+
+[node name="CombatEffectChannel" type="AudioStreamPlayer" parent="."]

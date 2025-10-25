@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterPreset" load_steps=24 format=3 uid="uid://sbgvxsso3lps"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=25 format=3 uid="uid://sbgvxsso3lps"]
 
 [ext_resource type="Texture2D" uid="uid://rsnv5qmmp3qb" path="res://textures/paladin_mc.png" id="1_nu5sr"]
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_rjqum"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_eablb"]
 [ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="2_kams4"]
 [ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="4_kams4"]
+[ext_resource type="Resource" uid="uid://lmpv6wyj1rcp" path="res://resources/attacks/stabby_stabby.tres" id="5_xai6b"]
 [ext_resource type="Texture2D" uid="uid://b5udo80nnbe4k" path="res://textures/paladin_mugshot.png" id="6_a38lw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3x58n"]
@@ -111,6 +112,7 @@ _dexterity = SubResource("Resource_a38lw")
 _intelligence = SubResource("Resource_xai6b")
 _wisdom = SubResource("Resource_j72nk")
 _charisma = SubResource("Resource_0vtaw")
+_attacks = Array[ExtResource("1_rjqum")]([ExtResource("5_xai6b")])
 _mugshot = ExtResource("6_a38lw")
 metadata/_custom_type_script = "uid://lm0dbt0s13sp"
 

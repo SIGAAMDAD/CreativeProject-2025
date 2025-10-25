@@ -22,6 +22,11 @@ CharacterData="*res://scripts/Gameplay/character_manager.gd"
 SaveManager="*res://scripts/Gameplay/save_slot_manager.gd"
 DiceGlobal="*res://scripts/Gameplay/dice_roller.gd"
 
+[dialogue_manager]
+
+editor/wrap_long_lines=true
+runtime/balloon_path="res://scenes/balloon.tscn"
+
 [display]
 
 window/size/viewport_width=1920
@@ -33,6 +38,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Dating Sim"
+
+[editor]
+
+export/convert_text_resources_to_binary=false
 
 [editor_plugins]
 
@@ -72,9 +81,10 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/dialogue/combat_choices.dialogue")
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/combat_choices.dialogue", "res://resources/dialogue/astarion.dialogue")
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

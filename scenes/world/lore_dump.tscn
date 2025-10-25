@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d014u457jst5u"]
+
+[ext_resource type="Script" uid="uid://bfs4iodoy1tnh" path="res://scripts/Gameplay/lore_dump.gd" id="1_l424y"]
+
+[node name="LoreDump" type="Area2D"]
+script = ExtResource("1_l424y")
+metadata/_custom_type_script = "uid://dt5b0fjkud4xn"
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -2,7 +2,6 @@ class_name SceneBase extends Node2D
 
 const PAUSE_MENU = preload( "res://scenes/pause_menu.tscn" )
 
-
 #
 # ===============
 # init_base

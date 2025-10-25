@@ -1,6 +1,6 @@
-class_name Team extends Node
+class_name Team extends Node2D
 
-var _members: Array[ CharacterBody2D ]
+@export var _members: Array[ CharacterBody2D ]
 
 signal turn_begin()
 signal turn_end()

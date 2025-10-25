@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://djgt45f8rxmwo"]
+
+[ext_resource type="Script" uid="uid://bslf25dwjbk3k" path="res://scripts/UserInterface/Menus/menu_system.gd" id="1_bhh5f"]
+[ext_resource type="Texture2D" uid="uid://ditbjugngtw41" path="res://textures/Untitled349_20251024212912.png" id="2_qmr8y"]
+[ext_resource type="PackedScene" uid="uid://mycpgr8rnc4a" path="res://scenes/menus/title_screen.tscn" id="3_2qe4f"]
+[ext_resource type="PackedScene" uid="uid://dnooe0hecrfu0" path="res://scenes/menus/main_menu.tscn" id="4_bkvru"]
+[ext_resource type="PackedScene" uid="uid://bgtgr2217t66w" path="res://scenes/menus/save_slots_menu.tscn" id="4_qmr8y"]
+[ext_resource type="PackedScene" uid="uid://bfdyudksffa8j" path="res://scenes/menus/character_creation_screen.tscn" id="5_xshqw"]
+[ext_resource type="AudioStream" uid="uid://bt8oj1dvyhsff" path="res://sounds/music/titlescreen.wav" id="6_m8h47"]
+[ext_resource type="AudioStream" uid="uid://cj252ef4bbb0u" path="res://sounds/ui/hover.wav" id="7_ou0a4"]
+[ext_resource type="AudioStream" uid="uid://b4g5yt2lydwfe" path="res://sounds/ui/pressed.wav" id="8_up5cv"]
+
+[node name="MenuSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bhh5f")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qmr8y")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_2qe4f")]
+layout_mode = 1
+
+[node name="SaveSlotsMenu" parent="." instance=ExtResource("4_qmr8y")]
+visible = false
+layout_mode = 1
+
+[node name="MainMenu" parent="." instance=ExtResource("4_bkvru")]
+visible = false
+layout_mode = 1
+
+[node name="CharacterCreationScreen" parent="." instance=ExtResource("5_xshqw")]
+visible = false
+layout_mode = 1
+
+[node name="ThemeStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m8h47")
+volume_db = -10.0
+autoplay = true
+
+[node name="UIFocusedSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ou0a4")
+
+[node name="UIPressedSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_up5cv")

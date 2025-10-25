@@ -1,23 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv11nmchybny"]
+[gd_scene load_steps=6 format=3 uid="uid://dv11nmchybny"]
 
 [ext_resource type="Script" uid="uid://kehifls1dj7j" path="res://scripts/UserInterface/turn_based_ui.gd" id="1_hc7kn"]
 
+[sub_resource type="Gradient" id="Gradient_ourc3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_55h6k"]
+gradient = SubResource("Gradient_ourc3")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_hc7kn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ourc3"]
+gradient = SubResource("Gradient_hc7kn")
+width = 1
+
 [node name="TurnBasedUI" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_hc7kn")
 
 [node name="CharacterList" type="VBoxContainer" parent="."]
-anchors_preset = -1
-anchor_top = 0.48100004
-anchor_right = 0.021000002
-anchor_bottom = 0.51900005
-offset_top = 0.5199585
-offset_right = -0.3200035
-offset_bottom = -0.52008057
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CharacterDetails" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 128)
+custom_minimum_size = Vector2(0, 172)
 anchors_preset = -1
 anchor_top = 0.88100004
 anchor_right = 1.0
@@ -26,10 +42,69 @@ offset_left = -3.0
 offset_top = 0.5199585
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="AttackContainer" type="HBoxContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CharacterDetails"]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_55h6k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterDetails"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CharacterDetails"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="AttackContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/AttackContainer"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ourc3")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/AttackContainer"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ourc3")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/AttackContainer"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ourc3")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SELECT AN ATTACK"
+
+[node name="Team1Positions" type="Node2D" parent="."]
+position = Vector2(251, 646)
+
+[node name="Position0" type="Node2D" parent="Team1Positions"]
+position = Vector2(331, 73)
+
+[node name="Position1" type="Node2D" parent="Team1Positions"]
+position = Vector2(114, 77)
+
+[node name="Position2" type="Node2D" parent="Team1Positions"]
+position = Vector2(-72, 74)
+
+[node name="Team2Positions" type="Node2D" parent="."]
+position = Vector2(1480, 650)
+
+[node name="Position0" type="Node2D" parent="Team2Positions"]
+position = Vector2(331, 73)
+
+[node name="Position1" type="Node2D" parent="Team2Positions"]
+position = Vector2(114, 77)
+
+[node name="Position2" type="Node2D" parent="Team2Positions"]
+position = Vector2(-72, 74)

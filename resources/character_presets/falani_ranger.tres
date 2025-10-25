@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterPreset" load_steps=23 format=3 uid="uid://dq7dw5okyfqnd"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=24 format=3 uid="uid://dq7dw5okyfqnd"]
 
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_3d0qg"]
 [ext_resource type="Texture2D" uid="uid://kh43qwhs3to3" path="res://textures/rang_mc.png" id="2_8oxak"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_xuewq"]
 [ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="3_tu8sw"]
 [ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="3_xuewq"]
+[ext_resource type="Texture2D" uid="uid://csotilj2fsjnp" path="res://textures/falani_ranger_mugshot.png" id="6_t8pv3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oxak"]
 atlas = ExtResource("2_8oxak")
@@ -112,7 +113,7 @@ _dexterity = SubResource("Resource_37255")
 _intelligence = SubResource("Resource_t8pv3")
 _wisdom = SubResource("Resource_htw35")
 _charisma = SubResource("Resource_ca638")
-_mugshot = ExtResource("2_8oxak")
+_mugshot = ExtResource("6_t8pv3")
 metadata/_custom_type_script = "uid://lm0dbt0s13sp"
 
 [resource]

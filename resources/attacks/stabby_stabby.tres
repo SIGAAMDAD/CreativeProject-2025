@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=5 format=3 uid="uid://lmpv6wyj1rcp"]
+
+[ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_f3ge4"]
+[ext_resource type="Resource" uid="uid://chbof1n3nbs0v" path="res://resources/dice/d8.tres" id="1_p1jyo"]
+
+[sub_resource type="Gradient" id="Gradient_p1jyo"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ohjen"]
+gradient = SubResource("Gradient_p1jyo")
+width = 1
+
+[resource]
+script = ExtResource("1_f3ge4")
+_hit_dice_multiplier = 1
+_hit_dice = ExtResource("1_p1jyo")
+_image = SubResource("GradientTexture1D_ohjen")
+metadata/_custom_type_script = "uid://dhtvb21gn23no"

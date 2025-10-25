@@ -7,6 +7,7 @@ class SlotInfo:
 	var _time_accessed_month: Time.Month = Time.Month.MONTH_JANUARY
 	var _time_accessed_day: Time.Weekday = Time.Weekday.WEEKDAY_MONDAY
 	var _game_started: bool = false
+	var _name: String = "Unnamed"
 
 	#
 	# ===============
@@ -53,6 +54,7 @@ class SaveSlot:
 	func _load_header() -> void:
 		var _file: FileAccess = FileAccess.open( _filepath, FileAccess.READ )
 		if _file != null:
+			_info._name = _file.get_pascal_string()
 			_info._time_accessed_year = _file.get_32()
 			_info._time_accessed_month = _file.get_32() as Time.Month
 			_info._time_accessed_day = _file.get_32() as Time.Weekday
@@ -74,6 +76,7 @@ class SaveSlot:
 		if file != null:
 			_info.update()
 			
+			file.store_pascal_string( _info._name )
 			file.store_32( _info._time_accessed_year )
 			file.store_32( _info._time_accessed_month )
 			file.store_32( _info._time_accessed_day )
@@ -90,6 +93,7 @@ class SaveSlot:
 	func delete() -> void:
 		print( "Erasing save data..." )
 		DirAccess.remove_absolute( _filepath )
+		_info._name = "Unnamed"
 		_info._game_started = 0
 		_info._time_accessed_year = 0
 		_info._time_accessed_month = 0
@@ -102,8 +106,10 @@ class SaveSlot:
 	# create
 	# ===============
 	#
-	func create() -> void:
+	func create( name: String ) -> void:
 		print( "Creating save data..." )
+
+		_info._name = name
 		_save_header()
 		_exists = true
 
@@ -120,7 +126,7 @@ class SaveSlot:
 			_load_header()
 
 var _save_slots: Array[ SaveSlot ]
-var _current_slot: int
+var _current_slot: int = 0
 
 signal save_game( file: FileAccess )
 signal start_game()
@@ -130,11 +136,11 @@ signal start_game()
 # _create_save_file
 # ===============
 #
-func _create_save_file( slot: int ) -> void:
+func _create_save_file( slot: int, name: String ) -> void:
 	print( "SaveSlotManager: initializing save slot..." )
 
 	_current_slot = slot
-	_save_slots[ _current_slot ].create()
+	_save_slots[ _current_slot ].create( name )
 
 
 #
@@ -142,12 +148,12 @@ func _create_save_file( slot: int ) -> void:
 # init_save_slot
 # ===============
 #
-func set_slot( slot: int ) -> void:
+func set_slot( slot: int, name: String ) -> void:
 	print( "SaveSlotManager: set save slot to " + var_to_str( slot ) )
 
 	if !_save_slots[ slot ]._exists:
 		print( "creating save slot..." )
-		_create_save_file( slot )
+		_create_save_file( slot, name )
 	else:
 		# do something?
 		pass
@@ -220,6 +226,9 @@ func get_progress( slot: int ) -> SlotInfo:
 # ===============
 #
 func initialize_game() -> void:
+	if _save_slots[ _current_slot ]._info._game_started:
+		return
+	
 	_save_slots[ _current_slot ]._info._game_started = true
 	start_game.emit()
 

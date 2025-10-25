@@ -1,6 +1,9 @@
 class_name TitleScreen extends Control
 
-signal transition_to_main_menu()
+signal set_menu_state( state: MenuSystem.State )
+
+func _ready() -> void:
+	set_meta( "index", MenuSystem.State.Title )
 
 #
 # ===============
@@ -11,4 +14,4 @@ func _unhandled_input( _event: InputEvent ) -> void:
 	if Input.is_action_just_pressed( "ui_cancel" ):
 		get_tree().quit()
 	else:
-		transition_to_main_menu.emit()
+		set_menu_state.emit( MenuSystem.State.SaveSlots )

@@ -6,17 +6,9 @@ class_name DateChoice extends Node2D
 var _knows_player: bool = false
 var _favor: int = 0
 
-signal interaction_begin()
-signal interaction_end()
-
-#
-# ===============
-# _on_interact_area_area_shape_entered
-# ===============
-#
-func _on_interact_area_area_shape_entered( area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int ) -> void:
-	if _knows_player:
-		DialogueManager.show_dialogue_balloon( _dialogue, "meet" )
+func meet_player() -> void:
+	_knows_player = true
+	_favor = 0
 
 
 #
