@@ -44,6 +44,8 @@ func load( file: FileAccess ) -> void:
 func _ready() -> void:
 	set_preset( CharacterData._player_preset )
 	
+	SaveManager.save_game.connect( save )
+	
 	var _sprites: AnimatedSprite2D = get_node( "AnimatedSprite2D" )
 	_sprites.sprite_frames = _stats._animations
 

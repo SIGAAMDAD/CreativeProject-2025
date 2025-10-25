@@ -28,3 +28,7 @@ theme_override_constants/outline_size = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
 theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 2
+text = "ERASE"

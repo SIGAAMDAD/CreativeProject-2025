@@ -6,6 +6,7 @@ signal highlighted( slot: int )
 @export var _slot_index: int = 0
 
 @onready var _select_button: Button = $SelectButton
+@onready var _delete_button: Button = $DeleteButton
 
 #
 # ===============
@@ -14,6 +15,16 @@ signal highlighted( slot: int )
 #
 func _on_select_button_pressed() -> void:
 	selected.emit( _slot_index )
+
+
+#
+# ===============
+# _on_delete_button_pressed
+# ===============
+#
+func _on_delete_button_pressed() -> void:
+	SaveManager.delete_slot( _slot_index )
+	update()
 
 
 #
@@ -37,20 +48,28 @@ func _on_focus_entered() -> void:
 
 #
 # ===============
+# update
+# ===============
+#
+func update() -> void:
+	var _info: SaveSlotManager.SlotInfo = SaveManager.get_progress( _slot_index )
+	var _text: String = "DATA " + var_to_str( _slot_index ) + " "
+	if _info != null:
+		_text += _date_to_string( _info )
+		_delete_button.text = "ERASE"
+	else:
+		_delete_button.text = "[EMPTY]"
+	
+	_select_button.text = _text
+
+
+#
+# ===============
 # _ready
 # ===============
 #
 func _ready() -> void:
-	_select_button.connect( "pressed", _on_select_button_pressed )
-	
-	var _info: SaveSlotManager.SlotInfo = SaveManager.get_progress( _slot_index )
-	
-	var _text: String = "DATA " + var_to_str( _slot_index ) + " "
-	if _info != null:
-		_text += _date_to_string( _info )
-	else:
-		_text += "[EMPTY]"
-	
-	_select_button.text = _text
-	
-	connect( "focus_entered", _on_focus_entered )
+	_delete_button.pressed.connect( _on_delete_button_pressed )
+	_select_button.pressed.connect( _on_select_button_pressed )
+	update()
+	focus_entered.connect( _on_focus_entered )

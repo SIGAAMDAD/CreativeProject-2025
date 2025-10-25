@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://etteplnh7exn"]
+
+[ext_resource type="Script" uid="uid://cg7wo266nyogy" path="res://scripts/UserInterface/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="Gradient" id="Gradient_n87rw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 1, 0.1764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_myx47"]
+gradient = SubResource("Gradient_n87rw")
+width = 1
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_n87rw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_myx47")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.38500002
+anchor_top = 0.45400003
+anchor_right = 0.615
+anchor_bottom = 0.546
+offset_left = 0.7999878
+offset_top = -0.32003784
+offset_right = -0.8000488
+offset_bottom = 0.32000732
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 44
+text = "PAUSE MENU"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME"
+
+[node name="QuitGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "QUIT"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

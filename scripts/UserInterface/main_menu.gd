@@ -56,16 +56,6 @@ func _on_quit_game_button_pressed() -> void:
 
 #
 # ===============
-# _on_delete_button_pressed
-# ===============
-#
-func _on_delete_button_pressed() -> void:
-	SaveManager.delete_slot( _current_slot )
-	_init_slots()
-
-
-#
-# ===============
 # _on_slot_focused
 # ===============
 #
@@ -85,15 +75,33 @@ func _init_slots() -> void:
 		_button.connect( "highlighted", _on_slot_focused )
 
 
+func update_save_slots() -> void:
+	for slot in SaveSlotManager.MAX_SAVE_SLOTS:
+		get_node( "MainContainer/SaveSlotsSelectContainer" ).get_child( slot ).update()
+
+
 #
 # ===============
 # _ready
 # ===============
 #
 func _ready() -> void:
-	var _delete_data_button: Button = get_node( "MainContainer/SaveSlotsSelectContainer/DeleteDataButton" )
-	_delete_data_button.connect( "pressed", _on_delete_button_pressed )
-	
 	_init_slots()
+	update_save_slots()
 	
 	get_node( "MainContainer/SaveSlotsSelectContainer" ).get_child( 0 ).grab_focus()
+
+
+#
+# ===============
+# _unhandled_input
+# ===============
+#
+func _unhandled_input( event: InputEvent ) -> void:
+	if Input.is_action_just_released( "ui_cancel" ):
+		if _save_slots_container.visible:
+			get_tree().change_scene_to_file( "res://scenes/title_screen.tscn" )
+		else:
+			update_save_slots()
+			_options_container.hide()
+			_save_slots_container.show()

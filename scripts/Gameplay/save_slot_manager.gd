@@ -68,19 +68,20 @@ class SaveSlot:
 	# _save_header
 	# ===============
 	#
-	func _save_header() -> void:
-		var _file: FileAccess = FileAccess.open( _filepath, FileAccess.WRITE )
-		if _file != null:
+	func _save_header( file: FileAccess = null ) -> void:
+		if file == null:
+			file = FileAccess.open( _filepath, FileAccess.WRITE )
+		if file != null:
 			_info.update()
 			
-			_file.store_32( _info._time_accessed_year )
-			_file.store_32( _info._time_accessed_month )
-			_file.store_32( _info._time_accessed_day )
-			_file.store_8( _info._game_started )
+			file.store_32( _info._time_accessed_year )
+			file.store_32( _info._time_accessed_month )
+			file.store_32( _info._time_accessed_day )
+			file.store_8( _info._game_started )
 		else:
 			push_error( "Error creating save slot file!" )
 		
-		_file.close()
+		file.close()
 
 
 	#
@@ -89,6 +90,7 @@ class SaveSlot:
 	# ===============
 	#
 	func delete() -> void:
+		print( "Erasing save data..." )
 		DirAccess.remove_absolute( _filepath )
 		_info._game_started = 0
 		_info._time_accessed_year = 0
@@ -103,7 +105,9 @@ class SaveSlot:
 	# ===============
 	#
 	func create() -> void:
+		print( "Creating save data..." )
 		_save_header()
+		_exists = true
 
 
 	#
@@ -120,7 +124,7 @@ class SaveSlot:
 var _save_slots: Array[ SaveSlot ]
 var _current_slot: int
 
-signal save_game()
+signal save_game( file: FileAccess )
 signal start_game()
 
 #
@@ -144,8 +148,10 @@ func set_slot( slot: int ) -> void:
 	print( "SaveSlotManager: set save slot to " + var_to_str( slot ) )
 
 	if !_save_slots[ slot ]._exists:
+		print( "creating save slot..." )
 		_create_save_file( slot )
 	else:
+		# do something?
 		pass
 
 
@@ -191,7 +197,10 @@ func load() -> void:
 # ===============
 #
 func save() -> void:
-	save_game.emit()
+	var _file: FileAccess = FileAccess.open( _save_slots[ _current_slot ]._filepath, FileAccess.WRITE )
+	
+	_save_slots[ _current_slot ]._save_heaer( _file )
+	save_game.emit( _file )
 
 
 #

@@ -41,7 +41,6 @@ size_flags_vertical = 4
 [node name="SaveSlot0" parent="MainContainer/SaveSlotsSelectContainer" instance=ExtResource("2_ekxnf")]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../DeleteDataButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../SaveSlot2")
 focus_behavior_recursive = 2
@@ -60,17 +59,8 @@ layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../SaveSlot1")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../DeleteDataButton")
 focus_behavior_recursive = 2
 _slot_index = 2
-
-[node name="DeleteDataButton" type="Button" parent="MainContainer/SaveSlotsSelectContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../SaveSlot2")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../SaveSlot0")
-text = "DELETE DATA"
 
 [node name="OptionsContainer" type="VBoxContainer" parent="MainContainer"]
 visible = false

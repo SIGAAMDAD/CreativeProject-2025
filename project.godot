@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dating Sim"
-run/main_scene="uid://dnooe0hecrfu0"
+run/main_scene="uid://mycpgr8rnc4a"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,14 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 CharacterData="*res://scripts/Gameplay/character_manager.gd"
 SaveManager="*res://scripts/Gameplay/save_slot_manager.gd"
 DiceGlobal="*res://scripts/Gameplay/dice_roller.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
