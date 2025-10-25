@@ -1,9 +1,47 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=3 format=3 uid="uid://sbgvxsso3lps"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=13 format=3 uid="uid://sbgvxsso3lps"]
 
 [ext_resource type="Texture2D" uid="uid://rsnv5qmmp3qb" path="res://textures/paladin_mc.png" id="1_nu5sr"]
+[ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_rjqum"]
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_eablb"]
+[ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="2_kams4"]
+[ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="4_kams4"]
 
-[resource]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vtaw"]
+
+[sub_resource type="Resource" id="Resource_0vtaw"]
+script = ExtResource("2_kams4")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_a38lw"]
+script = ExtResource("2_kams4")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_xai6b"]
+script = ExtResource("2_kams4")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_y0x6o"]
+script = ExtResource("2_kams4")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_j72nk"]
+script = ExtResource("2_kams4")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_3x58n"]
 script = ExtResource("2_eablb")
 _name = "Paladin"
+_strength = SubResource("Resource_y0x6o")
+_dexterity = SubResource("Resource_a38lw")
+_intelligence = SubResource("Resource_xai6b")
+_wisdom = SubResource("Resource_j72nk")
+_charisma = SubResource("Resource_0vtaw")
 _mugshot = ExtResource("1_nu5sr")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"
+
+[resource]
+script = ExtResource("4_kams4")
+_stats = SubResource("Resource_3x58n")
+_animations = SubResource("SpriteFrames_0vtaw")
+_photo = ExtResource("1_nu5sr")
+_bio = "Big bad lad"

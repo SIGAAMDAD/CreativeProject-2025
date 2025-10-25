@@ -1,11 +1,61 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://dtxktjj4o4hw5"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=14 format=3 uid="uid://dtxktjj4o4hw5"]
 
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_5pv70"]
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_idf18"]
 [ext_resource type="Texture2D" uid="uid://bspm786dp4v0v" path="res://textures/sorc_mc.png" id="2_jieca"]
+[ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="3_5k0rv"]
+[ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="4_jieca"]
 
-[resource]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jieca"]
+atlas = ExtResource("2_jieca")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5k0rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jieca")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_m0won"]
+script = ExtResource("3_5k0rv")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_qx2ha"]
+script = ExtResource("3_5k0rv")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_qlk43"]
+script = ExtResource("3_5k0rv")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_xgrbt"]
+script = ExtResource("3_5k0rv")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_nbgj8"]
+script = ExtResource("3_5k0rv")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_5k0rv"]
 script = ExtResource("2_idf18")
 _name = "Elf Sorcerer"
+_strength = SubResource("Resource_xgrbt")
+_dexterity = SubResource("Resource_qx2ha")
+_intelligence = SubResource("Resource_qlk43")
+_wisdom = SubResource("Resource_nbgj8")
+_charisma = SubResource("Resource_m0won")
 _mugshot = ExtResource("2_jieca")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"
+
+[resource]
+script = ExtResource("4_jieca")
+_stats = SubResource("Resource_5k0rv")
+_animations = SubResource("SpriteFrames_5k0rv")
+_photo = ExtResource("2_jieca")
+_bio = "Elf baddie"
 metadata/_custom_type_script = "uid://lm0dbt0s13sp"

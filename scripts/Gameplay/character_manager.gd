@@ -5,7 +5,7 @@ var _date_choices: Array[ DateChoice ]
 var _player_team: Team
 var _enemy_team: Team
 
-var _player_preset: CharacterStats
+var _player_preset: CharacterPreset
 
 signal interaction_begin()
 signal interaction_end()
@@ -16,7 +16,7 @@ signal interaction_end()
 # set_player_preset
 # ===============
 #
-func set_player_preset( preset: CharacterStats ) -> void:
+func set_player_preset( preset: CharacterPreset ) -> void:
 	_player_preset = preset
 
 

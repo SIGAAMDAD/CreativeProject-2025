@@ -9,9 +9,10 @@ enum StatType {
 }
 
 @export var _score: int = 0
-@export var _modifier: int = 0
 @export var _type: StatType
 @export var _name: String
+
+var _modifier: int = 0
 
 
 #

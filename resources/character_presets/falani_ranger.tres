@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=14 format=3 uid="uid://dq7dw5okyfqnd"]
+
+[ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_3d0qg"]
+[ext_resource type="Texture2D" uid="uid://kh43qwhs3to3" path="res://textures/rang_mc.png" id="2_8oxak"]
+[ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_xuewq"]
+[ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="3_tu8sw"]
+[ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="3_xuewq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oxak"]
+atlas = ExtResource("2_8oxak")
+region = Rect2(0, 0, 34, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8oxak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oxak")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ca638"]
+script = ExtResource("3_tu8sw")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_37255"]
+script = ExtResource("3_tu8sw")
+_score = 15
+_type = 1
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_t8pv3"]
+script = ExtResource("3_tu8sw")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_6s6to"]
+script = ExtResource("3_tu8sw")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_htw35"]
+script = ExtResource("3_tu8sw")
+metadata/_custom_type_script = "uid://4st2vy73v5cp"
+
+[sub_resource type="Resource" id="Resource_tu8sw"]
+script = ExtResource("2_xuewq")
+_name = "Falani Ranger"
+_strength = SubResource("Resource_6s6to")
+_dexterity = SubResource("Resource_37255")
+_intelligence = SubResource("Resource_t8pv3")
+_wisdom = SubResource("Resource_htw35")
+_charisma = SubResource("Resource_ca638")
+_mugshot = ExtResource("2_8oxak")
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"
+
+[resource]
+script = ExtResource("3_xuewq")
+_stats = SubResource("Resource_tu8sw")
+_animations = SubResource("SpriteFrames_8oxak")
+_photo = ExtResource("2_8oxak")
+_bio = "EdgeLord"
+metadata/_custom_type_script = "uid://lm0dbt0s13sp"

@@ -1,10 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpmvht44qgmlp"]
+[gd_scene load_steps=8 format=3 uid="uid://cpmvht44qgmlp"]
 
 [ext_resource type="Script" uid="uid://c0rcuh6bnhn1d" path="res://scripts/Gameplay/player_character.gd" id="1_6r27q"]
 [ext_resource type="Script" uid="uid://m42c4x2rytr3" path="res://scripts/Gameplay/team.gd" id="2_kww55"]
+[ext_resource type="Texture2D" uid="uid://kh43qwhs3to3" path="res://textures/rang_mc.png" id="3_4h0vy"]
 [ext_resource type="PackedScene" uid="uid://ds42k77pol11k" path="res://scenes/heads_up_display.tscn" id="3_kww55"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj7mf"]
+atlas = ExtResource("3_4h0vy")
+region = Rect2(0, 0, 34, 45)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6r27q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj7mf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4h0vy"]
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_6r27q")
@@ -15,5 +31,12 @@ script = ExtResource("2_kww55")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6r27q")
+animation = &"idle"
 
 [node name="HeadsUpDisplay" parent="." instance=ExtResource("3_kww55")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4h0vy")
