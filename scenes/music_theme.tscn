@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://gtpdnaab1yrb"]
+
+[ext_resource type="Script" uid="uid://d20vi83q8qb5y" path="res://scripts/music_theme.gd" id="1_oere8"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_oere8"]
+
+[node name="MusicTheme" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamWAV_oere8")
+script = ExtResource("1_oere8")

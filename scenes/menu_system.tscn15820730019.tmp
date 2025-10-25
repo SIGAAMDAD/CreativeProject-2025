@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://djgt45f8rxmwo"]
+
+[ext_resource type="Script" uid="uid://bslf25dwjbk3k" path="res://scripts/UserInterface/Menus/menu_system.gd" id="1_r3rpp"]
+[ext_resource type="PackedScene" uid="uid://mycpgr8rnc4a" path="res://scenes/title_screen.tscn" id="2_w8jd7"]
+[ext_resource type="PackedScene" uid="uid://dnooe0hecrfu0" path="res://scenes/main_menu.tscn" id="3_db1og"]
+[ext_resource type="AudioStream" uid="uid://bt8oj1dvyhsff" path="res://sounds/music/titlescreen.wav" id="4_w8jd7"]
+
+[node name="MenuSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3rpp")
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_w8jd7")]
+layout_mode = 1
+
+[node name="MainMenu" parent="." instance=ExtResource("3_db1og")]
+visible = false
+layout_mode = 1
+
+[node name="ThemeStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_w8jd7")
+volume_db = -8.0
+
+[node name="UISfx" type="AudioStreamPlayer" parent="."]

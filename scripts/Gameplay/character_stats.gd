@@ -8,17 +8,17 @@ class_name CharacterStats extends Resource
 @export var _wisdom: CharacterStat
 @export var _charisma: CharacterStat
 
-var _arcana: CharacterSkill
-var _athletics: CharacterSkill
-var _deception: CharacterSkill
-var _insight: CharacterSkill
-var _persuasion: CharacterSkill
-var _stealth: CharacterSkill
-var _medicine: CharacterSkill
-var _intimidation: CharacterSkill
-var _investigation: CharacterSkill
+var _arcana: CharacterSkill = CharacterSkill.new()
+var _athletics: CharacterSkill = CharacterSkill.new()
+var _deception: CharacterSkill = CharacterSkill.new()
+var _insight: CharacterSkill = CharacterSkill.new()
+var _persuasion: CharacterSkill = CharacterSkill.new()
+var _stealth: CharacterSkill = CharacterSkill.new()
+var _medicine: CharacterSkill = CharacterSkill.new()
+var _intimidation: CharacterSkill = CharacterSkill.new()
+var _investigation: CharacterSkill = CharacterSkill.new()
 
-var _initiative: int
+var _initiative: int = 0
 
 @export var _attacks: Array[ AttackData ]
 

@@ -80,8 +80,6 @@ class SaveSlot:
 			file.store_8( _info._game_started )
 		else:
 			push_error( "Error creating save slot file!" )
-		
-		file.close()
 
 
 	#
@@ -198,8 +196,12 @@ func load() -> void:
 #
 func save() -> void:
 	var _file: FileAccess = FileAccess.open( _save_slots[ _current_slot ]._filepath, FileAccess.WRITE )
+	if _file == null:
+		push_error( "Error opening save file " + _save_slots[ _current_slot ]._filepath + "!" )
+		return
 	
-	_save_slots[ _current_slot ]._save_heaer( _file )
+	print( "Saving game state to file " + _save_slots[ _current_slot ]._filepath + "..." )
+	_save_slots[ _current_slot ]._save_header( _file )
 	save_game.emit( _file )
 
 

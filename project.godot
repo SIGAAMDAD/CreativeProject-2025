@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dating Sim"
-run/main_scene="uid://mycpgr8rnc4a"
+run/main_scene="uid://djgt45f8rxmwo"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -36,11 +36,12 @@ project/assembly_name="Dating Sim"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/animatedbutton/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [global_group]
 
 DateChoices=""
+Archive=""
 
 [gui]
 

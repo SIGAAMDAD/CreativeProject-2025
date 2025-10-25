@@ -11,7 +11,7 @@ func _add_character_to_list( data: CharacterStats, list: VBoxContainer ) -> void
 func _populate_character_list() -> void:
 	var _list: VBoxContainer = get_node( "MarginContainer/CharacterList" )
 	
-	_add_character_to_list.call_deferred( get_node( "/root/ActiveScene/PlayerCharacter" )._stats._stats, _list )
+	_add_character_to_list.call_deferred( get_node( "/root/ActiveScene/PlayerCharacter" )._stats, _list )
 	for date_npc in CharacterData._date_choices:
 		_add_character_to_list.call_deferred( date_npc._stats, _list )
 

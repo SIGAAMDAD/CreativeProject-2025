@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnooe0hecrfu0"]
+[gd_scene load_steps=8 format=3 uid="uid://dnooe0hecrfu0"]
 
-[ext_resource type="Script" uid="uid://caa75mqouparp" path="res://scripts/UserInterface/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://caa75mqouparp" path="res://scripts/UserInterface/Menus/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://ditbjugngtw41" path="res://textures/Untitled349_20251024212912.png" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://bi240clocu10d" path="res://scenes/save_slot_button.tscn" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bkwcvfijipp5s" path="res://textures/main_menu_ui_button.png" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://ksidpr2d3e38" path="res://addons/animatedbutton/AnimatedButton.gd" id="5_8ln24"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nyfqn"]
+texture = ExtResource("4_wu84c")
+texture_margin_left = 6.0
+texture_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6dvpa"]
+texture = ExtResource("4_wu84c")
+modulate_color = Color(0, 0, 1, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,7 +22,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l6cm7")
+script = ExtResource("1_8ln24")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bqqt6")
+expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="MainContainer" type="VBoxContainer" parent="."]
@@ -29,9 +52,12 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuTitle" type="Label" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 172)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
 text = "SELECT SAVE SLOT"
+horizontal_alignment = 1
 
 [node name="SaveSlotsSelectContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
@@ -68,15 +94,33 @@ layout_mode = 2
 
 [node name="PlayGameButton" type="Button" parent="MainContainer/OptionsContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
 text = "START GAME"
+script = ExtResource("5_8ln24")
+metadata/_custom_type_script = "uid://ksidpr2d3e38"
 
 [node name="SettingsMenuButton" type="Button" parent="MainContainer/OptionsContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
 text = "SETTINGS"
+script = ExtResource("5_8ln24")
+metadata/_custom_type_script = "uid://ksidpr2d3e38"
 
 [node name="QuitGameButton" type="Button" parent="MainContainer/OptionsContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
 text = "QUIT GAME"
+script = ExtResource("5_8ln24")
+metadata/_custom_type_script = "uid://ksidpr2d3e38"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

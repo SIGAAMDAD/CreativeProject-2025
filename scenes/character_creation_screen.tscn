@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfdyudksffa8j"]
+[gd_scene load_steps=3 format=3 uid="uid://bfdyudksffa8j"]
 
 [ext_resource type="Script" uid="uid://cnwg4kbd74e2k" path="res://scripts/UserInterface/character_creator.gd" id="1_8d884"]
+[ext_resource type="Texture2D" uid="uid://ditbjugngtw41" path="res://textures/Untitled349_20251024212912.png" id="2_u4y6e"]
 
 [node name="CharacterCreationScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +11,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8d884")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u4y6e")
+expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -62,11 +74,11 @@ text = "BEGIN GAME"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.97800004
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -24.0
+offset_top = -0.23999023
 grow_horizontal = 2
 grow_vertical = 0
 text = "BACK"

@@ -5,6 +5,11 @@ var _current_turn: int = 0
 signal turn_ended( team: Team )
 signal turn_started( team: Team )
 
+#
+# ===============
+# calc_collective_initiative_bonus
+# ===============
+#
 func calc_collective_initiative_bonus( team: Team ) -> int:
 	var _initiative: int = 0
 	for member in team._members:

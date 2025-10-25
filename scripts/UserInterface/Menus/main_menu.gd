@@ -7,6 +7,9 @@ class_name MainMenu extends Control
 
 var _current_slot: int = 0
 
+signal transition_to_titlescreen()
+signal transition_to_character_select_screen()
+
 #
 # ===============
 # _set_save_slot
@@ -33,7 +36,7 @@ func _on_play_game_button_pressed() -> void:
 	if SaveManager.has_progress_in_current_slot():
 		SaveManager.load()
 	else:
-		get_tree().change_scene_to_file( "res://scenes/character_creation_screen.tscn" )
+		transition_to_character_select_screen.emit()
 
 
 #
@@ -100,7 +103,7 @@ func _ready() -> void:
 func _unhandled_input( event: InputEvent ) -> void:
 	if Input.is_action_just_released( "ui_cancel" ):
 		if _save_slots_container.visible:
-			get_tree().change_scene_to_file( "res://scenes/title_screen.tscn" )
+			transition_to_titlescreen.emit()
 		else:
 			update_save_slots()
 			_options_container.hide()

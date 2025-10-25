@@ -1,12 +1,87 @@
-[gd_resource type="Resource" script_class="CharacterPreset" load_steps=13 format=3 uid="uid://sbgvxsso3lps"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=24 format=3 uid="uid://sbgvxsso3lps"]
 
 [ext_resource type="Texture2D" uid="uid://rsnv5qmmp3qb" path="res://textures/paladin_mc.png" id="1_nu5sr"]
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_rjqum"]
+[ext_resource type="Texture2D" uid="uid://p7f4h6diyp4u" path="res://textures/paladin_walk.png" id="2_0vtaw"]
+[ext_resource type="Texture2D" uid="uid://6e014cjbd8xg" path="res://textures/pal_sidewalk.png" id="2_3x58n"]
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_eablb"]
 [ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="2_kams4"]
 [ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="4_kams4"]
+[ext_resource type="Texture2D" uid="uid://b5udo80nnbe4k" path="res://textures/paladin_mugshot.png" id="6_a38lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x58n"]
+atlas = ExtResource("1_nu5sr")
+region = Rect2(0, 0, 38, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j72nk"]
+atlas = ExtResource("2_3x58n")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnru1"]
+atlas = ExtResource("2_3x58n")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e628"]
+atlas = ExtResource("2_3x58n")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylckv"]
+atlas = ExtResource("2_3x58n")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lw"]
+atlas = ExtResource("2_0vtaw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xai6b"]
+atlas = ExtResource("2_0vtaw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0x6o"]
+atlas = ExtResource("2_0vtaw")
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0vtaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x58n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j72nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnru1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e628")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylckv")
+}],
+"loop": true,
+"name": &"move_horizontal",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xai6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0x6o")
+}],
+"loop": true,
+"name": &"move_vertical",
+"speed": 5.0
+}]
 
 [sub_resource type="Resource" id="Resource_0vtaw"]
 script = ExtResource("2_kams4")
@@ -36,7 +111,7 @@ _dexterity = SubResource("Resource_a38lw")
 _intelligence = SubResource("Resource_xai6b")
 _wisdom = SubResource("Resource_j72nk")
 _charisma = SubResource("Resource_0vtaw")
-_mugshot = ExtResource("1_nu5sr")
+_mugshot = ExtResource("6_a38lw")
 metadata/_custom_type_script = "uid://lm0dbt0s13sp"
 
 [resource]

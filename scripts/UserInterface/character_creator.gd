@@ -5,6 +5,8 @@ const CHARACTER_CHOICE_CONTAINER = preload( "res://scenes/character_choice.tscn"
 var _selected_character: int = 0
 var _character_presets: Array[ CharacterPreset ]
 
+signal exit()
+
 #
 # ===============
 # _list_files_in_directory
@@ -55,7 +57,7 @@ func _on_begin_game_pressed() -> void:
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file( "res://scenes/main_menu.tscn" )
+	exit.emit()
 
 
 #

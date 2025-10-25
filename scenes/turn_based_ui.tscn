@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv11nmchybny"]
+
+[ext_resource type="Script" uid="uid://kehifls1dj7j" path="res://scripts/UserInterface/turn_based_ui.gd" id="1_hc7kn"]
+
+[node name="TurnBasedUI" type="CanvasLayer"]
+script = ExtResource("1_hc7kn")
+
+[node name="CharacterList" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.48100004
+anchor_right = 0.021000002
+anchor_bottom = 0.51900005
+offset_top = 0.5199585
+offset_right = -0.3200035
+offset_bottom = -0.52008057
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CharacterDetails" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 128)
+anchors_preset = -1
+anchor_top = 0.88100004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 0.5199585
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AttackContainer" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true

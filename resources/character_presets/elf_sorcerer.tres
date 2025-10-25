@@ -1,14 +1,44 @@
-[gd_resource type="Resource" script_class="CharacterPreset" load_steps=14 format=3 uid="uid://dtxktjj4o4hw5"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=23 format=3 uid="uid://dtxktjj4o4hw5"]
 
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_5pv70"]
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_idf18"]
 [ext_resource type="Texture2D" uid="uid://bspm786dp4v0v" path="res://textures/sorc_mc.png" id="2_jieca"]
+[ext_resource type="Texture2D" uid="uid://c1v8fl2yk6if5" path="res://textures/sorc_walk.png" id="2_m0won"]
+[ext_resource type="Texture2D" uid="uid://bepilow8ijsir" path="res://textures/sorc_sidesheet.png" id="2_qx2ha"]
 [ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="3_5k0rv"]
 [ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="4_jieca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jieca"]
 atlas = ExtResource("2_jieca")
 region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbgj8"]
+atlas = ExtResource("2_qx2ha")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4pg7"]
+atlas = ExtResource("2_qx2ha")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82dcs"]
+atlas = ExtResource("2_qx2ha")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7xle"]
+atlas = ExtResource("2_qx2ha")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx2ha"]
+atlas = ExtResource("2_m0won")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlk43"]
+atlas = ExtResource("2_m0won")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgrbt"]
+atlas = ExtResource("2_m0won")
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5k0rv"]
 animations = [{
@@ -18,6 +48,37 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbgj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4pg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82dcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7xle")
+}],
+"loop": true,
+"name": &"move_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx2ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlk43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgrbt")
+}],
+"loop": true,
+"name": &"move_vertical",
 "speed": 5.0
 }]
 

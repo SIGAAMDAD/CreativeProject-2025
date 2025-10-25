@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterPreset" load_steps=14 format=3 uid="uid://dq7dw5okyfqnd"]
+[gd_resource type="Resource" script_class="CharacterPreset" load_steps=23 format=3 uid="uid://dq7dw5okyfqnd"]
 
 [ext_resource type="Script" uid="uid://dhtvb21gn23no" path="res://scripts/Gameplay/attack_data.gd" id="1_3d0qg"]
 [ext_resource type="Texture2D" uid="uid://kh43qwhs3to3" path="res://textures/rang_mc.png" id="2_8oxak"]
+[ext_resource type="Texture2D" uid="uid://lxxf0jv8kqtr" path="res://textures/range_sidwal.png" id="2_37255"]
+[ext_resource type="Texture2D" uid="uid://p18iesm5rson" path="res://textures/walk_rang_mc.png" id="2_ca638"]
 [ext_resource type="Script" uid="uid://lm0dbt0s13sp" path="res://scripts/Gameplay/character_stats.gd" id="2_xuewq"]
 [ext_resource type="Script" uid="uid://4st2vy73v5cp" path="res://scripts/Gameplay/character_stat.gd" id="3_tu8sw"]
 [ext_resource type="Script" uid="uid://b2slt7x1wwwi3" path="res://scripts/Gameplay/character_preset.gd" id="3_xuewq"]
@@ -9,6 +11,34 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oxak"]
 atlas = ExtResource("2_8oxak")
 region = Rect2(0, 0, 34, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htw35"]
+atlas = ExtResource("2_37255")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dghj6"]
+atlas = ExtResource("2_37255")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a7wx"]
+atlas = ExtResource("2_37255")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1i68"]
+atlas = ExtResource("2_37255")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37255"]
+atlas = ExtResource("2_ca638")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8pv3"]
+atlas = ExtResource("2_ca638")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s6to"]
+atlas = ExtResource("2_ca638")
+region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8oxak"]
 animations = [{
@@ -19,6 +49,37 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htw35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dghj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a7wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1i68")
+}],
+"loop": true,
+"name": &"move_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37255")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8pv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s6to")
+}],
+"loop": true,
+"name": &"move_vertical",
+"speed": 7.0
 }]
 
 [sub_resource type="Resource" id="Resource_ca638"]
